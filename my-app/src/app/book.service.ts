@@ -10,7 +10,7 @@ export class BookService {
   }
   getBooks():Promise<Array<Book>>{
     return this.http
-      .get("http://localhost:8080/book")
+      .get("/api/book")
       .toPromise()
       .then((response =>{
         return response.json().data as Book[];
