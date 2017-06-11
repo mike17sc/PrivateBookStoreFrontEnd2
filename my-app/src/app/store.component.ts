@@ -17,6 +17,6 @@ export class StoreComponent implements OnInit{
   }
   ngOnInit():void{
       this.bookService.getBooks()
-        .then(books =>this.books);
+        .then(books =>this.books=books);
   }
 }

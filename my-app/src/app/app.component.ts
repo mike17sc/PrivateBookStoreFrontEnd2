@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  connected:string='true';
+  connected:string='false';
   userType:string="client";
   title = 'app';
 }
