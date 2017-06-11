@@ -15,6 +15,8 @@ export class BookService {
       .get("/api/book")
       .toPromise()
       .then((response =>{
+        console.log(response.json())
+        console.log(response.json().data)
         return response.json().data as Book[];
       })
       )
