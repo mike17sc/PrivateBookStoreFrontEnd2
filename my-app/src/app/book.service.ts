@@ -6,12 +6,11 @@ import {promise} from "selenium-webdriver";
 
 @Injectable()
 export class BookService {
-  private bookUrl = "http://localhost/book"; //API list of books
   constructor(private http: Http) {
   }
   getBooks():Promise<Array<Book>>{
     return this.http
-      .get(this.bookUrl)
+      .get("http://localhost:8080/book")
       .toPromise()
       .then((response =>{
         return response.json().data as Book[];

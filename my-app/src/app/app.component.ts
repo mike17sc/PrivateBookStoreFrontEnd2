@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div *ngIf="connected != 'true'; else logedIn">
+    <div *ngIf="connected == 'false'; else logedIn">
       <login></login>
     </div>
     <ng-template #logedIn>
@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  connected:string="false";
+  connected:string='true';
   userType:string="client";
   title = 'app';
 }

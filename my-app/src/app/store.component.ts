@@ -8,13 +8,14 @@ import { BookService} from './book.service';
   styleUrls:['./store.component.css']
 })
 export class StoreComponent implements OnInit{
-  books:Promise<Book[]>;
+  books:Book[];
   constructor(
     private bookService:BookService
   ){
 
   }
   ngOnInit():void{
-      this.books=this.bookService.getBooks();
+      this.bookService.getBooks()
+        .then(books =>this.books);
   }
 }
