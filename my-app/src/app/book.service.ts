@@ -2,7 +2,6 @@ import{Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import{Book} from'./book';
-import {promise} from "selenium-webdriver";
 
 @Injectable()
 export class BookService {
