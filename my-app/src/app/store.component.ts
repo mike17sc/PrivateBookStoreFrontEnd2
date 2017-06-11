@@ -9,6 +9,7 @@ import { BookService} from './book.service';
 })
 export class StoreComponent implements OnInit{
   books:Book[];
+
   constructor(
     private bookService:BookService
   ){
