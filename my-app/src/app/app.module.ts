@@ -8,6 +8,7 @@ import {LoginService} from'./login.service';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./login";
 import {StoreComponent} from "./store.component"
+import {DataService} from "./data.service";
 
 @NgModule({
   declarations: [
@@ -18,9 +19,9 @@ import {StoreComponent} from "./store.component"
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
-  providers: [BookService,LoginService],
+  providers: [BookService,LoginService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

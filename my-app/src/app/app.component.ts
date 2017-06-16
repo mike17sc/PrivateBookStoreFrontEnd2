@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import {DataService} from "./data.service";
 
 @Component({
   selector: 'app-root',
   template: `
-    <div *ngIf="connected == 'false'; else logedIn">
+    <div *ngIf="connected =='false' else logedIn">
       <login></login>
+      {{connected}}
     </div>
     <ng-template #logedIn>
         <div *ngIf="userType == 'client';else admin">
@@ -18,7 +20,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  connected:string='false';
+  constructor(private dataService:DataService){}
+  connected=this.dataService.connected;
   userType:string="client";
   title = 'app';
 }
