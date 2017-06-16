@@ -1,5 +1,10 @@
 <h3>books</h3>
 
 <div *ngFor="let book of books">
-  <h4>{{book.id}}</h4>
+  <ul>
+    <li>{{book.id}}</li>
+    <li>{{book.price}}</li>
+    <li>{{book.quantity}}</li>
+    <li>{{book.status}}</li>
+  </ul>
 </div>

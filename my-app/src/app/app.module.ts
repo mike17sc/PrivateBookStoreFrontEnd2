@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {BookService} from'./book.service';
+import {LoginService} from'./login.service';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./login";
 import {StoreComponent} from "./store.component"
@@ -19,7 +20,7 @@ import {StoreComponent} from "./store.component"
     FormsModule,
     HttpModule
   ],
-  providers: [BookService],
+  providers: [BookService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

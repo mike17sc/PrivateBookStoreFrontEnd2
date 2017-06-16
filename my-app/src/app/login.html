@@ -1,5 +1,6 @@
 <form>
-  <input id="username" name="username" />
-  <input id="password" name="password" />
-
+  <input #username placeholder="username" />
+  <input #password placeholder="password" />
+  <button (click)="login(username.value,password.value)">button</button>
+  <p>{{loginLog.id}}</p>
 </form>
