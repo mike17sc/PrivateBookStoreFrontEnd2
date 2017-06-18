@@ -1,15 +1,14 @@
 import {Component, Input} from '@angular/core';
-import {DataService} from "./data.service";
 
 @Component({
   selector: 'app-root',
   template: `
-    <div *ngIf="connected !='true' else client">
-      <login (changeEvent)="connected=$event"></login>    
+    <div *ngIf="connected =='false' else client">
+      <login (changeEvent)="connected=$event"></login>
     </div>
     <ng-template #client>
         <div *ngIf="userType == 'client';else admin">
-           <store></store>   
+           <store></store> 
         </div>
         <ng-template #admin>
            test3 
@@ -19,7 +18,7 @@ import {DataService} from "./data.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private dataService: DataService) {
+  constructor() {
   }
 
   public connected: String = "false";

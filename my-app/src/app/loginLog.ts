@@ -1,4 +1,4 @@
-import {User} from "./client";
+import {User} from "./user";
 export class LoginLog{
   id:number;
   user:User;

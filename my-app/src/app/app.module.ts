@@ -8,7 +8,6 @@ import {LoginService} from'./login.service';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./login";
 import {StoreComponent} from "./store.component"
-import {DataService} from "./data.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import {DataService} from "./data.service";
     FormsModule,
     HttpModule,
   ],
-  providers: [BookService,LoginService,DataService],
+  providers: [BookService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
