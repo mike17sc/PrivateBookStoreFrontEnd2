@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 import {LoginService} from "./login.service";
 import {LoginLog} from "./loginLog";
 import {DataService} from "./data.service";
@@ -9,14 +9,21 @@ import {DataService} from "./data.service";
   styleUrls: ['./login.css']
 })
 export class LoginComponent {
-  loginLog:LoginLog=new LoginLog();
-  constructor(
+    constructor(
     private loginService:LoginService,
     private dataService:DataService
   ){}
+  loginLog:LoginLog=new LoginLog();
+  @Output()
+  changeEvent=new EventEmitter<String>();
+  onChange(value:String,loginLog:LoginLog,object:Object){
+    this.changeEvent.emit(value);
+  }
   login(username:string,password:string){
       this.loginService.login(username,password)
         .then(loginlog => this.loginLog=loginlog);
-    console.log(this.dataService.connected);
+      if (this.loginLog!=null){
+        ;
+      }
   }
 }

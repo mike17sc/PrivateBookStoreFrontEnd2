@@ -1,6 +1,7 @@
 <form>
   <input #username placeholder="username" />
-  <input #password placeholder="password" />
+  {{connected}}
+  <input #password placeholder="password"/>
   <button (click)="login(username.value,password.value)">button</button>
   <p>{{loginLog.id}}</p>
 </form>

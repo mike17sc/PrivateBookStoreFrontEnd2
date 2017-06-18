@@ -3,7 +3,7 @@ import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import {AppComponent} from "./app.component";
-import {User} from "./user";
+import {User} from "./client";
 import {LoginLog} from "./loginLog";
 import {DataService} from "./data.service";
 
@@ -20,7 +20,6 @@ export class LoginService{
           if(response.status==401){
             return null;
           }else{
-            this.dataService.connected="true";
             console.log(this.dataService.connected);
             return response.json() as LoginLog;
           }
