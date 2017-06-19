@@ -10,8 +10,7 @@ import {LogoutService} from "./logout.service";
 export class LogoutComponent {
   constructor(private logoutService: LogoutService) {
   }
-
-  loginLog: LoginLog;
+  @Input() loginLog: LoginLog;
   @Output()
   changeEvent = new EventEmitter();
 
@@ -21,11 +20,11 @@ export class LogoutComponent {
 
 
 
-  logout(id:number) {
-    this.logoutService.logout(id)
+  logout() {
+    this.logoutService.logout(this.loginLog.id)
       .then(loginlog => this.loginLog = loginlog);
     if (this.loginLog != null) {
-      this.onChange("false", this.loginLog);
+      this.onChange("false", null);
       console.log(this.loginLog);
     }
   }

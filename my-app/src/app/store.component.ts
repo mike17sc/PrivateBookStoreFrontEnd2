@@ -1,6 +1,8 @@
-import{Component, OnInit} from '@angular/core';
+import{Component, OnInit, Input} from '@angular/core';
 import {Book} from './book';
 import { BookService} from './book.service';
+import {User} from "./user";
+import {BuyBook} from "./buyBook";
 
 @Component({
   selector:'store',
@@ -9,7 +11,8 @@ import { BookService} from './book.service';
 })
 export class StoreComponent implements OnInit{
   books:Book[];
-
+  buyCurrentBook:BuyBook;
+  @Input() currentUser:User;
   constructor(
     private bookService:BookService
   ){
@@ -18,5 +21,12 @@ export class StoreComponent implements OnInit{
   ngOnInit():void{
       this.bookService.getBooks()
         .then(books =>this.books=books);
+  }
+  buyBook(delivery:String,book:Book,quantity:number){
+    this.buyCurrentBook.book=book;
+    this.buyCurrentBook.quantity=quantity;
+    this.buyCurrentBook.delivery=delivery;
+    this.buyCurrentBook.client=this.currentUser;
+    this.bookService.buyBooks(this.buyCurrentBook).then(buybook=>this.buyCurrentBook=buybook);
   }
 }

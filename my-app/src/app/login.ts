@@ -12,8 +12,7 @@ export class LoginComponent {
   }
 
   loginLog: LoginLog;
-  @Output()
-  changeEvent = new EventEmitter();
+  @Output() changeEvent = new EventEmitter();
 
   onChange(value: String, loginLog: LoginLog) {
     this.changeEvent.emit({value: value, loginLog: loginLog});

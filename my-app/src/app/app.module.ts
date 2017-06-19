@@ -7,12 +7,15 @@ import {BookService} from'./book.service';
 import {LoginService} from'./login.service';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./login";
+import {LogoutComponent} from "./logout";
 import {StoreComponent} from "./store.component"
+import {LogoutService} from "./logout.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    LogoutComponent,
     StoreComponent
   ],
   imports: [
@@ -20,7 +23,7 @@ import {StoreComponent} from "./store.component"
     FormsModule,
     HttpModule,
   ],
-  providers: [BookService,LoginService],
+  providers: [BookService,LoginService,LogoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

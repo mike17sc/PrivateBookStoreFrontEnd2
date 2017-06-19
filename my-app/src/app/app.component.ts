@@ -10,7 +10,8 @@ import {LoginLog} from "./loginLog";
     </div>
     <ng-template #client>
         <div *ngIf="userType == 'Client';else admin">
-           <store></store> 
+           <logout [loginLog]="loginLog"(changeEvent)="connected=$event.value"(changeEvent)="loginLog=$event.loginLog"></logout>
+           <store [currentUser]="loginLog.user"></store>
         </div>
         <ng-template #admin>
            test3
