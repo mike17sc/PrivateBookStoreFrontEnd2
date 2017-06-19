@@ -1,14 +1,14 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {LoginService} from "./login.service";
 import {LoginLog} from "./loginLog";
+import {LogoutService} from "./logout.service";
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  selector: 'logout',
+  templateUrl: './logout.html',
+  styleUrls: ['./logout.css']
 })
-export class LoginComponent {
-  constructor(private loginService: LoginService) {
+export class LogoutComponent {
+  constructor(private logoutService: LogoutService) {
   }
 
   loginLog: LoginLog;
@@ -19,12 +19,15 @@ export class LoginComponent {
     this.changeEvent.emit({value: value, loginLog: loginLog});
   }
 
-  login(username: string, password: string) {
-    this.loginService.login(username, password)
+
+
+  logout(id:number) {
+    this.logoutService.logout(id)
       .then(loginlog => this.loginLog = loginlog);
     if (this.loginLog != null) {
-      this.onChange("true", this.loginLog);
+      this.onChange("false", this.loginLog);
       console.log(this.loginLog);
     }
   }
+
 }

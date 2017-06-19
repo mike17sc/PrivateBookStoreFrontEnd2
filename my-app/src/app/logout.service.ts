@@ -8,16 +8,15 @@ import {Client} from "./client";
 import {Admin} from "./admin";
 
 @Injectable()
-export class LoginService {
+export class LogoutService {
   constructor(private http: Http) {
   }
-
-  login(username: String, password: String): Promise<LoginLog> {
+  logout(id:number): Promise<LoginLog> {
     return this.http
-      .get("api/user/login/" + username + "/" + password)
+      .get("api/user/logout/" + id)
       .toPromise()
       .then((response) => {
-          if (response.status == 401) {
+          if (response.status != 200) {
             return null;
           } else {
             return response.json();
@@ -26,5 +25,4 @@ export class LoginService {
         }
       )
   }
-
 }

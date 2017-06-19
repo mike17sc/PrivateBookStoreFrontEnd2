@@ -5,4 +5,5 @@ export class Client{
   name:string;
   address:string;
   email:string;
+  userType:string;
 }
