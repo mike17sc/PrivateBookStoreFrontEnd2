@@ -1,4 +1,5 @@
 import{Component, OnInit, Input} from '@angular/core';
+import {User} from "./user";
 
 @Component({
   selector:'admin',
@@ -6,6 +7,7 @@ import{Component, OnInit, Input} from '@angular/core';
   styleUrls:['./admin.page.component.css']
 })
 export class AdminPageComponent implements OnInit{
+  @Input() currentUser:User;
   constructor(
   ){
 
