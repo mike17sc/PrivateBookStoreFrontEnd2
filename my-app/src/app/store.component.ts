@@ -11,7 +11,7 @@ import {BuyBook} from "./buyBook";
 })
 export class StoreComponent implements OnInit{
   books:Book[];
-  buyCurrentBook:BuyBook;
+  buyCurrentBook:BuyBook=new BuyBook();
   @Input() currentUser:User;
   constructor(
     private bookService:BookService
@@ -23,10 +23,13 @@ export class StoreComponent implements OnInit{
         .then(books =>this.books=books);
   }
   buyBook(delivery:String,book:Book,quantity:number){
-    this.buyCurrentBook.book=book;
+    console.log(book);
+    console.log(quantity);
     this.buyCurrentBook.quantity=quantity;
     this.buyCurrentBook.delivery=delivery;
     this.buyCurrentBook.client=this.currentUser;
+    this.buyCurrentBook.book=book;
     this.bookService.buyBooks(this.buyCurrentBook).then(buybook=>this.buyCurrentBook=buybook);
+    this.buyCurrentBook=new BuyBook();
   }
 }

@@ -6,9 +6,11 @@
     <li><label>price: </label>{{book.price}}</li>
     <li><label>quantity: </label>{{book.quantity}}</li>
     <li><label>status: </label>{{book.status}}</li>
-    <button (click)="logout({{book.id}}delivery.value,{{book}},quantity)">Buy</button>
-    <input #quantity type="number" name="quantity" min="1" max="100"><br>
-    <input #{{book.id}}delivery type="radio" name="{{book.id}}delivery" value="Home"> Home
-    <input #{{book.id}}delivery type="radio" name="{{book.id}}delivery" value="At shop" checked> At shop<br>
+    <form #buyBookForm="ngForm" (ngSubmit)="buyBook(delivery.value,book,quantity.value)">
+      <input #quantity type="number" name="quantity" min="1" max="100"><br>
+      <input #delivery type="radio" name="delivery" value="Home"> Home
+      <input #delivery type="radio" name="delivery" value="At shop" checked> At shop<br>
+      <button>Buy</button>
+    </form>
   </ul>
 </div>

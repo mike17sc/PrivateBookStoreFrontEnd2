@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from "./login";
 import {LogoutComponent} from "./logout";
 import {StoreComponent} from "./store.component"
+import {AdminPageComponent} from "./admin.Page.component"
 import {LogoutService} from "./logout.service";
 
 @NgModule({
@@ -16,7 +17,8 @@ import {LogoutService} from "./logout.service";
     AppComponent,
     LoginComponent,
     LogoutComponent,
-    StoreComponent
+    StoreComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
