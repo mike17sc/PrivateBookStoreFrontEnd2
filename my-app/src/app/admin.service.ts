@@ -43,7 +43,6 @@ export class AdminService {
       .delete("http://localhost:8080/api/admin/" + adminId)
       .toPromise()
       .then((response => {
-        console.log(response.status)
         return response.status
       }))
   }

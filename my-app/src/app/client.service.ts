@@ -38,9 +38,21 @@ export class ClientService {
       .catch(this.handleError);
   }
 
-  deleteClient(clientId: number) {
+  deleteClient(clientId: number){
     return this.http
       .delete("http://localhost:8080/api/client/" + clientId)
+      .toPromise()
+      .then((response => {
+        console.log(response.status)
+        return response.status
+      }))
+  }
+  updateClient(clientId:number,client:Client){
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    console.log(client);
+    return this.http
+      .put("http://localhost:8080/api/client/" + clientId,JSON.stringify(client),{headers:headers})
       .toPromise()
       .then((response => {
         console.log(response.status)
