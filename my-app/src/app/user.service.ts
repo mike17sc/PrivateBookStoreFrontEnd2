@@ -11,29 +11,54 @@ import {User} from "./user";
 export class UserService {
   constructor(private http: Http) {
   }
-  getUserss():Promise<Array<User>>{
+
+  getUserss(): Promise<Array<User>> {
     return this.http
       .get("/api/user")
       .toPromise()
-      .then((response =>{
-        console.log(response.json());
-        return response.json() as User[];
-      })
-      )
-      .catch(this.handleError);
-  }
-  newUser(user:User):Promise<User>{
-    const headers=new Headers();
-    headers.append("Content-Type","application/json");
-    return this.http
-      .post("/api/user",JSON.stringify(user),{headers:headers})
-      .toPromise()
-      .then((response =>{
+      .then((response => {
           console.log(response.json());
-          return response.json() as User;
+          return response.json() as User[];
         })
       )
       .catch(this.handleError);
+  }
+
+  newUser(user: User): Promise<User> {
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    if(user.userType=="Admin"){
+      return this.http
+        .post("/api/amin", JSON.stringify(user), {headers: headers})
+        .toPromise()
+        .then((response => {
+            console.log(response.json());
+            return response.json() as User;
+          })
+        )
+        .catch(this.handleError);
+    }
+    else{
+      return this.http
+        .post("/api/client", JSON.stringify(user), {headers: headers})
+        .toPromise()
+        .then((response => {
+            console.log(response.json());
+            return response.json() as User;
+          })
+        )
+        .catch(this.handleError);
+    }
+
+  }
+
+  deleteUser(userId: number) {
+    return this.http
+      .delete("http://localhost:8080/api/user/" + userId)
+      .toPromise()
+      .then((response=>{
+        console.log(response.status)
+        return response.status}))
   }
 
   private handleError(error: any): Promise<any> {
