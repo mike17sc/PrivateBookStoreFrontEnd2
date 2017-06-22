@@ -2,10 +2,7 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
-import {AppComponent} from "./app.component";
 import {LoginLog} from "./loginLog";
-import {Client} from "./client";
-import {Admin} from "./admin";
 
 @Injectable()
 export class LogoutService {

@@ -1,6 +1,7 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
 import {LoginLog} from "./loginLog";
 import {LogoutService} from "./logout.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'logout',
@@ -8,7 +9,7 @@ import {LogoutService} from "./logout.service";
   styleUrls: ['./logout.css']
 })
 export class LogoutComponent {
-  constructor(private logoutService: LogoutService) {
+  constructor(private logoutService: LogoutService,private router:Router) {
   }
   @Input() loginLog: LoginLog;
   @Output()
@@ -27,6 +28,7 @@ export class LogoutComponent {
       this.onChange("false", null);
       console.log(this.loginLog);
     }
+    this.router.navigate(["/"]);
   }
 
 }

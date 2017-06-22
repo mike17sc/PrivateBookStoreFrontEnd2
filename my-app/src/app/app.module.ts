@@ -13,6 +13,7 @@ import {AppComponent } from './app.component';
 import {LoginComponent} from "./login";
 import {LogoutComponent} from "./logout";
 import {StoreComponent} from "./store.component"
+import {StatComponent} from "./stat"
 import {AdminPageComponent} from "./admin.Page.component"
 import {UserManagementComponent} from "./user.management.component"
 import {BookManagementComponent} from "./book.management.component"
@@ -26,7 +27,8 @@ import {LogoutService} from "./logout.service";
     StoreComponent,
     AdminPageComponent,
     UserManagementComponent,
-    BookManagementComponent
+    BookManagementComponent,
+    StatComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,28 @@ export class BookService {
       )
       .catch(this.handleError);
   }
+  getTotalSoldBooks():Promise<number>{
+    return this.http
+      .get("/api/buyBook/totalBookSold")
+      .toPromise()
+      .then((response =>{
+          console.log(response.json());
+          return response.json();
+        })
+      )
+      .catch(this.handleError);
+  }
+  bestSeller():Promise<Book>{
+    return this.http
+      .get("/api/buyBook/bestSeller")
+      .toPromise()
+      .then((response =>{
+          console.log(response.json());
+          return response.json() as Book;
+        })
+      )
+      .catch(this.handleError);
+  }
   buyBooks(buyBook:BuyBook):Promise<BuyBook>{
     const headers=new Headers();
     headers.append("Content-Type","application/json");
