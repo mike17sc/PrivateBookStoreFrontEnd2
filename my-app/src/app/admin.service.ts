@@ -46,7 +46,29 @@ export class AdminService {
         return response.status
       }))
   }
-
+  updateAdmin(adminId:number,admin:Admin){
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    console.log(admin);
+    return this.http
+      .put("http://localhost:8080/api/admin/" + adminId,JSON.stringify(admin),{headers:headers})
+      .toPromise()
+      .then((response => {
+        console.log(response.status)
+        return response.status
+      }))
+  }
+  createAdmin(admin:Admin){
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .post("http://localhost:8080/api/admin",JSON.stringify(admin),{headers:headers})
+      .toPromise()
+      .then((response => {
+        console.log(response.status)
+        return response.status
+      }))
+  }
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

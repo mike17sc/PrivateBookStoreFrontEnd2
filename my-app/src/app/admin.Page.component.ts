@@ -31,11 +31,26 @@ export class AdminPageComponent implements OnInit{
   }
   deleteAdmin(userId:number){
     this.adminService.deleteAdmin(userId);
+    this.ngOnInit();
   }
   deleteClient(userId:number){
     this.clientService.deleteClient(userId)
+    this.ngOnInit();
   }
   updateClient(id:number,client:Client){
     this.clientService.updateClient(id,client)
+  }
+  updateAdmin(id:number,admin:Admin){
+    this.adminService.updateAdmin(id,admin)
+  }
+  createAdmin(username:string,password:string,name:string){
+      let admin:Admin=new Admin(username,password,name)
+      this.adminService.createAdmin(admin);
+      this.ngOnInit();
+  }
+  createClient(username:string,password:string,name:string,address:string,email:string){
+    let client:Client=new Client(username,password,name,address,email);
+    this.clientService.createClient(client);
+    this.ngOnInit();
   }
 }

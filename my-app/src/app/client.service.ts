@@ -64,4 +64,15 @@ export class ClientService {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
+  createClient(client:Client){
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .post("http://localhost:8080/api/client",JSON.stringify(client),{headers:headers})
+      .toPromise()
+      .then((response => {
+        console.log(response.status)
+        return response.status
+      }))
+  }
 }
