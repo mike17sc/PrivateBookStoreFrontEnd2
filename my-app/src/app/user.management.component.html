@@ -1,0 +1,70 @@
+
+<table>
+  <tr>Admin</tr>
+  <tr>
+    <th>id</th>
+    <th>username</th>
+    <th>password</th>
+    <th>name</th>
+    <th>userType</th>
+  </tr>
+  <tr *ngFor="let admin of admins">
+    <td>{{admin.id}}</td>
+    <td><input [(ngModel)]="admin.username" value="{{admin.username}}"/></td>
+    <td><input [(ngModel)]="admin.password" value="{{admin.password}}"/></td>
+    <td><input [(ngModel)]="admin.name"value="{{admin.name}}"/></td>
+    <td>
+      {{admin.userType}}
+    </td>
+    <td><button (click)="deleteAdmin(admin.id)">delete</button></td>
+    <td><button (click)="updateAdmin(admin.id,admin)">update</button></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input #username name="username" /></td>
+    <td><input #password name="password"/></td>
+    <td><input #name name="name"/></td>
+    <td>
+      <label>Admin</label>
+    </td>
+    <td><button (click)="createAdmin(username.value,password.value,name.value)">create</button></td>
+  </tr>
+</table>
+<table>
+  <tr>Client</tr>
+  <tr>
+    <th>id</th>
+    <th>username</th>
+    <th>password</th>
+    <th>name</th>
+    <th>address</th>
+    <th>email</th>
+    <th>userType</th>
+  </tr>
+  <tr *ngFor="let client of clients">
+    <td>{{client.id}}</td>
+    <td><input [(ngModel)]="client.username" value="{{client.username}}"/></td>
+    <td><input [(ngModel)]="client.password"value="{{client.password}}"/></td>
+    <td><input [(ngModel)]="client.name"value="{{client.name}}"/></td>
+    <td><input [(ngModel)]="client.address"value="{{client.address}}"/></td>
+    <td><input [(ngModel)]="client.email"value="{{client.email}}"/></td>
+
+    <td>
+      {{client.userType}}
+    </td>
+    <td><button (click)="deleteClient(client.id)">delete</button></td>
+    <td><button (click)="updateClient(client.id,client)">update</button></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input #username name="username" /></td>
+    <td><input #password name="password"/></td>
+    <td><input #name name="name"/></td>
+    <td><input #address name="address"/></td>
+    <td><input #email name="email"/></td>
+    <td>
+      <label>Client</label>
+    </td>
+    <td><button (click)="createClient(username.value,password.value,name.value,address.value,email.value)">create</button></td>
+  </tr>
+</table>

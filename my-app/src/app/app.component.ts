@@ -15,7 +15,7 @@ import {LoginLog} from "./loginLog";
         </div>
         <ng-template #admin>
             <logout [loginLog]="loginLog"(changeEvent)="connected=$event.value"(changeEvent)="loginLog=$event.loginLog"></logout>
-            <admin [currentUser]="loginLog.user"></admin>   
+            <admin></admin>   
         </ng-template>
     </ng-template>
   `,

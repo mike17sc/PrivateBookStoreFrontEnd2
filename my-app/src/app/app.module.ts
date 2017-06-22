@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
 
 import {BookService} from'./book.service';
 import {LoginService} from'./login.service';
@@ -13,6 +14,8 @@ import {LoginComponent} from "./login";
 import {LogoutComponent} from "./logout";
 import {StoreComponent} from "./store.component"
 import {AdminPageComponent} from "./admin.Page.component"
+import {UserManagementComponent} from "./user.management.component"
+import {BookManagementComponent} from "./book.management.component"
 import {LogoutService} from "./logout.service";
 
 @NgModule({
@@ -21,12 +24,15 @@ import {LogoutService} from "./logout.service";
     LoginComponent,
     LogoutComponent,
     StoreComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    UserManagementComponent,
+    BookManagementComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule
   ],
   providers: [BookService,LoginService,LogoutService,UserService,AdminService,ClientService],
   bootstrap: [AppComponent]
