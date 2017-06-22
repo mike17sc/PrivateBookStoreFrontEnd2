@@ -23,7 +23,7 @@ export class BookManagementComponent implements OnInit{
     this.bookService.deleteBook(bookId);
     this.ngOnInit();
   }
-  updateAdmin(id:number,book:Book){
+  updateBook(id:number,book:Book){
     this.bookService.updateBook(id,book)
   }
   createBook(price:number,quantity:number,status:string){
