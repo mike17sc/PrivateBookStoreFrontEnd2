@@ -1,4 +1,15 @@
 
 <label>total sold books : {{totalSoldBooks}}</label><br/>
 <label>Best seller : {{bestSeller.id}}</label><br>
-<label>Best client : {{bestClient.id}}</label>
+<label>Best client : {{bestClient.id}}</label><br/>
+<h3>Audit log</h3>
+<table>
+  <tr>
+    <td>UserName</td>
+    <td>Duration</td>
+  </tr>
+  <tr *ngFor="let audits of auditLog">
+    <td>{{audits[0].username}}</td>
+    <td>{{audits[1]}}</td>
+  </tr>
+</table>

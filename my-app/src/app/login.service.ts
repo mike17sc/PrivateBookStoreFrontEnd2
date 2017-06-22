@@ -26,5 +26,20 @@ export class LoginService {
         }
       )
   }
+  auditLog():Promise<Array<Array<Object>>>{
+    return this.http
+      .get("api/loginLog/totalDuration")
+      .toPromise()
+      .then((response) => {
+          if (response.status == 401) {
+            return null;
+          } else {
+            console.log(response);
+            return response.json();
+          }
+
+        }
+      )
+  }
 
 }
