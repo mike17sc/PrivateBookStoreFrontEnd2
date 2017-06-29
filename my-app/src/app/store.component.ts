@@ -31,5 +31,6 @@ export class StoreComponent implements OnInit{
     this.buyCurrentBook.book=book;
     this.bookService.buyBooks(this.buyCurrentBook).then(buybook=>this.buyCurrentBook=buybook);
     this.buyCurrentBook=new BuyBook();
+    this.ngOnInit();
   }
 }
